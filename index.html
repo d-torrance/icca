@@ -1,1 +1,54 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Iron Chef Culinary Academy</h1>
+      The ghettoest alliance on Ywain!
+
+      <div class="row">
+
+	<div class="col-md-4">
+	  <h2>Iron Chef Culinary Academy</h2>
+	  <ul id="XOzRTUkS_o4"></ul>
+	</div>
+
+	<div class="col-md-4">
+	  <h2>The Red Branch</h2>
+	  <ul id="pGFPtAiXhkI"></ul>
+	</div>
+
+	<div class="col-md-4">
+	  <h2>Iron Chef Hibernia</h2>
+	  <ul id="305aVp19ifE"></ul>
+	</div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+	    integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+	    crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	    crossorigin="anonymous"></script>
+    <script>
+      function getGuild(guild) {
+        url = "http://cors.io/?u=http://api.camelotherald.com/guild/roster/" + guild;
+        $.getJSON(url, function (data) {
+          $.each(data.roster, function(key, value) {
+            $("ul#" + guild).append("<li><a href=\"http://search.camelotherald.com/#/character/" + value.character_web_id + "\">" + value.name + "</a> (" + value.level + " " + value.race + " " + value.class_name + ")</li>");
+          });
+        });
+      };
+      $(document).ready(function () {
+        getGuild("XOzRTUkS_o4");
+        getGuild("pGFPtAiXhkI");
+        getGuild("305aVp19ifE");
+      });
+    </script>
+  </body>
+
+</html>
