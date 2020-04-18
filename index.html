@@ -46,10 +46,10 @@
 	    crossorigin="anonymous"></script>
     <script>
       function getGuild(guild) {
-        url = "http://cors.io/?u=http://api.camelotherald.com/guild/roster/" + guild;
+        url = "http://cors.io/?u=https://api.camelotherald.com/guild/roster/" + guild;
         $.getJSON(url, function (data) {
           $.each(data.roster, function(key, value) {
-            $("ul#" + guild).append("<li><a href=\"http://search.camelotherald.com/#/character/" + value.character_web_id + "\">" + value.name + "</a> (" + value.level + " " + value.race + " " + value.class_name + ")</li>");
+            $("ul#" + guild).append("<li><a href=\"https://search.camelotherald.com/#/character/" + value.character_web_id + "\">" + value.name + "</a> (" + value.level + " " + value.race + " " + value.class_name + ")</li>");
           });
         });
       };
